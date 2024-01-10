@@ -33,6 +33,7 @@ const LoginUser = async (req, res)=>{
                 maxAge:  5 * 24 * 60 * 60 * 1000,
                 path: '/',
                 secure: true,
+                SameSite: None
             })
             res.json({ name , id: user._id,  accessToken })
         }else{
