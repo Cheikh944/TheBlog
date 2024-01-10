@@ -32,8 +32,7 @@ const LoginUser = async (req, res)=>{
                 httpOnly : true,
                 maxAge:  5 * 24 * 60 * 60 * 1000,
                 path: '/',
-                secure: true,
-                SameSite: None
+                secure: true
             })
             res.json({ name , id: user._id,  accessToken })
         }else{
