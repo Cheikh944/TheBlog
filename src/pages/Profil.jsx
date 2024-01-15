@@ -22,8 +22,7 @@ const Profil = () => {
     try {
       await Axios.delete(`/profil/blogs/${id}`);
       setBlogs(blogs.filter(blog => blog._id!== id));
-    } catch (error) {
-      console.error('Erreur lors de la suppression du blog :', error);
+    } catch {
     }
   }
 

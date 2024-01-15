@@ -11,11 +11,10 @@ const Recent = () => {
   useEffect(() => {
     Axios.get('/blogs/recent')
     .then(response => {
-        console.log('Réponse du serveur:', response?.data);
         setBlogs(response?.data);
       })
     .catch(error => {
-        console.error('Erreur lors de la requête GET:', error);
+        console.error('Erreur lors de la requête');
       });
   }, []);
 

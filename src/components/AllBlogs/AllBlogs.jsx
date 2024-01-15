@@ -13,7 +13,7 @@ const AllBlogs = () => {
         setBlogs(response.data);
       })
     .catch(error => {
-        console.error('Erreur lors de la requête GET:', error);
+        console.error('Erreur lors de la requête');
       });
   }, []);
 

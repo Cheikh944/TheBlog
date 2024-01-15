@@ -18,11 +18,11 @@ const Register = () => {
       name, 
       password 
     })
-    .then(response => {
-      console.log('Réponse du serveur:', response.data);
+    .then({
+
     })
     .catch(error => {
-      console.error('Erreur lors de la requête POST:', error);
+      console.error('Erreur lors de la requête');
     });
   }
 

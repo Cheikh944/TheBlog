@@ -22,10 +22,8 @@ const SubmitForm = ()=> {
                 'Authorization': `Bearer ${auth.accessToken}`
               }
             });
-            console.log('Réponse du serveur:', response?.data);
             return "Ok";
           } catch (error) {
-            console.error('Erreur lors de la requête POST:', error.response.data.error, error);
             // Vérifier si l'erreur est due à un jeton expiré
             if (error.response && error.response.status === 401 && error.response.data.error === 'Token expired') {
               try {
@@ -39,10 +37,8 @@ const SubmitForm = ()=> {
                     'Authorization': `Bearer ${newAccessToken}`
                   }
                 });
-                console.log('Réponse du serveur après rafraîchissement du jeton:', response?.data);
                 return "Ok";
               } catch (error) {
-                console.error('Erreur lors de la nouvelle tentative POST après rafraîchissement du jeton:', error);
                 throw error; // Propagate the error if the second attempt also fails
               }
             }

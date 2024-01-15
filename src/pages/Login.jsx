@@ -29,16 +29,13 @@ const Login = () => {
       withCredentials: true, // Inclure les informations du cookie
     })
     .then(response => {
-      console.log('Réponse du serveur:', response?.data);
       const accessToken = response?.data?.accessToken;
       setAuth( { name: response.data.name, accessToken: accessToken, id: response.data.id } );
       navigate(from, { replace: true });
     })
     .catch(error => {
-      console.error('Erreur lors de la requête POST:', error);
+      console.error('Erreur lors de la requête');
     });
-
-    console.log(response);
   }
 
   return (

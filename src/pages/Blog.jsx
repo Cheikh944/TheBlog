@@ -14,7 +14,7 @@ const Blog = () => {
         const response = await Axios.get(`/blogs/${id}`);
         setBlog(response.data);
       } catch (error) {
-        console.error('Erreur lors de la récupération des données du blog :', error);
+        console.error('Erreur lors de la récupération des données du blog');
       }
     };
     fetchData();
