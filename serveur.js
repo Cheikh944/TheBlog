@@ -10,7 +10,7 @@ require('dotenv').config()
 var cors = require('cors');
 var app = express();
 
-const allowedOrigins = ['http://localhost:5173', 'https://TheBlog.netlify.app'];
+const allowedOrigins = ['http://localhost:5173', 'https://theblogc.netlify.app'];
 
 app.use(cors({credentials:true, origin: allowedOrigins}));
 app.use(express.json());
