@@ -65,7 +65,7 @@ const Logout = (req, res) => {
     if (!cookie?.jwt) {
         return res.status(401).json({ error: 'Unauthorized' });
     }
-    res.clearCookie('jwt', { httpOnly: true });
+    res.clearCookie('jwt', { httpOnly: true, secure: true, sameSite: 'None' });
     res.status(204).end();
 };
 
