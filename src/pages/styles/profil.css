@@ -1,0 +1,71 @@
+.my-blog-card-header-img{
+    width: 320px;
+    height: 200px;
+}
+.profil-row .blog-row{
+    width: 95%;
+}
+.my-blog-card{
+    width: 320px;
+    margin-top: 20px;
+}
+.create-form{
+    margin: 20px 0;
+    color: white;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+.create-form textarea{
+    margin-left: 20px;
+    width: 400px;
+    height: 200px;
+}
+.blog-base{
+    margin-bottom: 50px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+.blog-base #titre{
+    font-size: 18px;
+    width: 250px;
+}
+.blog-base #description{
+    font-size: 16px;
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100px;
+    max-height: 100px;
+}
+.blog-base h1 { 
+    all: unset;
+    width: fit-content;
+    font-weight: 700;
+}
+.blog-base label, button{
+    cursor: pointer;
+    margin: 10px 0;
+    border: none;
+    width: fit-content;
+}
+.blog-creation button{
+    margin-top: 20px;
+    background-color: white;
+    height: 40px;
+    padding: 0 10px;
+    color: var(--primary-color);
+    font-weight: 700;
+    transition: 0.5s;
+}
+.blog-creation button:hover{
+    border-radius: 20px
+}
+.blog-base #image-blog{
+    width: fit-content;
+}
+.ql-toolbar {
+    margin-top: 20px;
+    background-color: white;
+}
+  

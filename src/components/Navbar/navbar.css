@@ -1,0 +1,33 @@
+nav{
+    display:  flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+    margin:  0 auto;
+}
+nav ul{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+nav a{
+    text-decoration: none;
+    color:  white;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+}
+nav a:hover{
+    font-weight: 600;
+    border-bottom: solid 1px white;
+}
+@media (max-width: 875px) {
+    nav ul{
+        gap: 20px;
+    }
+}
+@media (max-width: 340px) {
+    nav ul{
+        gap: 5px;
+    }
+}
