@@ -22,7 +22,7 @@ app.use("/profil", ProfilRoutes);
 app.use("/blogs", BlogRoutes);
 
 app.post('/upload', upload.single('image'), (req, res) => {
-  const imagePath = 'http://localhost:3000/Image/' + req.file.filename;
+  const imagePath = 'https://theblogc.onrender.com/Image/' + req.file.filename;
   res.json({ imagePath });
 })
 
