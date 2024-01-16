@@ -3,9 +3,9 @@ const Blog = require("../models/Blog");
 const CreatePost = async (req, res) => {
     const {title, description, name, content, id} = req.body;
     console.log(content)
-    console.log(req.file)
+    console.log(req.file)                                                            // TODO: change this url
     try {
-        const newBlog = { name, user_id: id, description, content, title, imagePres: 'http://localhost:3000/Image/' + req.file.filename, CreatedAt: Date.now() };
+        const newBlog = { name, user_id: id, description, content, title, imagePres: 'https://theblogc.onrender.com/Image/' + req.file.filename, CreatedAt: Date.now() };
         await Blog.collection.insertOne(newBlog);
         res.status(201).json({ success: true, message: 'Blog created successfully' });
       } catch (error) {
@@ -13,6 +13,34 @@ const CreatePost = async (req, res) => {
         res.status(500).json({ success: false, error: 'Something went wrong' })
       }
 }
+
+const UpdatePost = async (req, res) => {
+  const {title, description, name, content, id} = req.body;
+  const blogId = req.params.id;      
+  const imagePres = 'https://theblogc.onrender.com/Image/' + req.file.filename;
+  console.log(imagePres)                                              
+  try {
+    await Blog.findByIdAndUpdate(
+      { _id: blogId }, // Le critère de recherche, vous pouvez utiliser un autre champ comme "name", "user_id", etc., selon vos besoins
+      {
+        $set: {
+          name,
+          user_id: id,
+          description,
+          content,
+          title,
+          imagePres,
+          CreatedAt: Date.now()
+        }
+      }
+    );
+    res.status(201).json({ success: true, message: 'Blog updated successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: 'Something went wrong' })
+  }
+}
+
 const DeletePost = async (req, res) => {
   try {
     const blogId = req.params.id;
@@ -40,5 +68,6 @@ const GetBlogs = async (req, res) => {
 module.exports = {
     CreatePost,
     DeletePost,
-    GetBlogs
+    GetBlogs,
+    UpdatePost,
 }

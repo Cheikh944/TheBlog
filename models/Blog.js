@@ -19,7 +19,7 @@ const blogSchema = new Schema({
         type: String,
         required: true,
     },
-    image: {
+    imagePres: {
         type: String,
         required: true,
     },
