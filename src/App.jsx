@@ -6,6 +6,7 @@ import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
 import Profil from './pages/Profil.jsx'
 import CreateBlog from './pages/CreateBlog.jsx'
+import UpdateBlog from './pages/UpdateBlog.jsx';
 import Navbar from './components/Navbar/Navbar.jsx'
 import './App.css'
 import { AuthProvider } from './context/authContext.jsx';
@@ -26,6 +27,7 @@ function App() {
             <Route element={<RequireAuth />}>
               <Route path="/profil" element={<Profil />} />
               <Route path="/create" element={< CreateBlog/>} />
+              <Route path='/update/:id' element={<UpdateBlog/>} />
             </Route>
         </Route>
         </Routes>

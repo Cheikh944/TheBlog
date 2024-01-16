@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useState, useRef, useMemo, useEffect } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import Axios from '../Api/Axios';
@@ -6,11 +6,14 @@ import { useAuth } from '../context/authContext';
 import './styles/login.css'
 import './styles/blog-page.css'
 import moment from 'moment';
-import SubmitForm from '../components/HandleSubmit/HandleSubmit'
+import UpdateForm from '../components/HandleUpdate/HandleUpdate';
+import { redirect, useParams } from 'react-router-dom';
 
-const CreateBlog = () => {
+const UpdateBlog = () => {
 
-    const handleSubmit = SubmitForm();
+    const { id } = useParams();
+
+    const handleSubmit = UpdateForm();
     const { auth, setAuth } = useAuth();
     const [title, setTitle] = useState('');
     const [image, setImage] = useState('');
@@ -18,6 +21,21 @@ const CreateBlog = () => {
     const [content, setContent] = useState('');
 
     const quillRef = useRef(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await Axios.get(`/blogs/${id}`);
+           setTitle(response.data.title);
+           setDescription(response.data.description);
+           setContent(response.data.content)
+          } catch (error) {
+            console.error('Erreur lors de la récupération des données du blog');
+          }
+        };
+        fetchData();
+      }, [id]);
+
 
     const handleImageUpload = async (file) => {
       try {
@@ -48,6 +66,7 @@ const CreateBlog = () => {
         setDescription("");
         setContent("");
         setImage("");
+        redirect()
       }
     }
 
@@ -108,4 +127,4 @@ const CreateBlog = () => {
 }
 
 
-export default CreateBlog
+export default UpdateBlog

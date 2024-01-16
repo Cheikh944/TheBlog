@@ -39,6 +39,7 @@ const Profil = () => {
               </Link>
               <h2>{blog.title}</h2>
               <button onClick={()=> handleDelete(blog._id)}>Delete</button>
+              <Link to= {`/update/${blog._id}`}><button className='btn-right'>Update</button></Link>
             </div>
          )
         })}

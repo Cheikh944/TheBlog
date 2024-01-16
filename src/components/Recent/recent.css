@@ -24,7 +24,7 @@
     height: 200px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
 }
 .recent-card-left .card-text{
     width: 100%;
@@ -46,7 +46,8 @@
 .recent-card-img{
     width: 320px;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:  140%;
+    background-position: center;
 }
 .card-text{
     margin-left: 15px;
