@@ -5,22 +5,14 @@ import ProviderSubmit from "./components/ProviderSubmit";
 
 const handleSubmit = ProviderSubmit();
 
-
-const apiKey = process.env.REACT_APP_API_KEY;
-const authDomain = process.env.REACT_APP_AUTH_DOMAIN;
-const projectId = process.env.REACT_APP_ID;
-const storageBucket = process.env.REACT_APP_BUCKET;
-const messagingSenderId = process.env.REACT_APP_SENDER_ID;
-const appId = process.env.REACT_APP_SENDER_APP_ID;
-
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: apiKey,
-  authDomain: authDomain,
-  projectId: projectId,
-  storageBucket: storageBucket,
-  messagingSenderId: messagingSenderId,
-  appId: appId
+  apiKey: "AIzaSyBmQr-CsdQNQYC8d4XGc-IESJZMTW5CTlE",
+  authDomain: "the-blog-409412.firebaseapp.com",
+  projectId: "the-blog-409412",
+  storageBucket: "the-blog-409412.appspot.com",
+  messagingSenderId: "927250426527",
+  appId: "1:927250426527:web:5e6c16ada5d295d9c110aa"
 };
 
 // Initialize Firebase
