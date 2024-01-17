@@ -1,6 +1,7 @@
 import React ,{ useState } from 'react'
 import {Link} from 'react-router-dom';
 import axios from '../Api/Axios';
+import { signInWithGoogle } from '../Firebase';
 
 const Register = () => {
 
@@ -36,7 +37,8 @@ const Register = () => {
                 <label htmlFor="password">Password</label>
                 <input type="password" placeholder="Password" id='password'value={ password } onChange={(e) => setPassword(e.target.value)}/>
                 <li>{error && ("Please fill in all required fields.") }</li>
-                <button>Sign Up</button>
+                <button className='log-button'>Sign Up</button>
+                <button className='google-button' onClick={signInWithGoogle}>Sign with Google</button>
             </form>
             <div>
               <p>already have an account ?</p>

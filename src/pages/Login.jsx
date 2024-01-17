@@ -1,9 +1,9 @@
 import React ,{ useState } from 'react'
 import './styles/login.css'
-import { Link, useNavigate, useLocation  } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Axios from '../Api/Axios';
 import { useAuth } from '../context/authContext';
-
+import { signInWithGoogle } from '../Firebase'; 
 const Login = () => {
   
   const { auth, setAuth } = useAuth();
@@ -48,7 +48,8 @@ const Login = () => {
                 <label htmlFor="password">Password</label>
                 <input type="password" placeholder="Password" id='password'value={ password } onChange={(e) => setPassword(e.target.value)}/>
                 <li>{error && ("Please fill in all required fields.") }</li>
-                <button>Login</button>
+                <button className='log-button'>Login</button>
+                <button className='google-button' onClick={signInWithGoogle}>Sign with Google</button>
             </form>
             <div>
               <p>Don't have an account?</p>
