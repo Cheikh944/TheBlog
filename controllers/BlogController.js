@@ -1,14 +1,14 @@
 const Blog = require("../models/Blog");
 
 const GetAll = async (req, res) => {
-    try {
-        const blogs = await Blog.find();
-        res.json(blogs);
-      } catch (error) {
-        console.error(error);
-        res.status(500).json({ success: false, error: 'Something went wrong' })
-      }
-}
+  try {
+    const blogs = await Blog.find();
+    res.json(blogs);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: "Something went wrong" });
+  }
+};
 
 const GetRecent = async (req, res) => {
   try {
@@ -21,22 +21,22 @@ const GetRecent = async (req, res) => {
     res.json(sortedBlogs.slice(0, 4));
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, error: 'Something went wrong' })
+    res.status(500).json({ success: false, error: "Something went wrong" });
   }
-}
+};
 
 const GetById = async (req, res) => {
-    try {
-        const blog = await Blog.findById(req.params.id);
-        res.json(blog);
-      } catch (error) {
-        console.error(error);
-        res.status(500).json({ success: false, error: 'Something went wrong' })
-      }
-}
+  try {
+    const blog = await Blog.findById(req.params.id);
+    res.json(blog);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: "Something went wrong" });
+  }
+};
 
 module.exports = {
-    GetAll,
-    GetRecent,
-    GetById
-}
+  GetAll,
+  GetRecent,
+  GetById,
+};

@@ -1,24 +1,30 @@
 const Blog = require("../models/Blog");
 
 const CreatePost = async (req, res) => {
-    const {title, description, name, content, id} = req.body;
-    console.log(content)
-    console.log(req.file)                                                            // TODO: change this url
-    try {
-        const newBlog = { name, user_id: id, description, content, title, imagePres: 'https://theblogc.onrender.com/Image/' + req.file.filename, CreatedAt: Date.now() };
-        await Blog.collection.insertOne(newBlog);
-        res.status(201).json({ success: true, message: 'Blog created successfully' });
-      } catch (error) {
-        console.error(error);
-        res.status(500).json({ success: false, error: 'Something went wrong' })
-      }
-}
+  const { title, image, description, name, content, id } = req.body;
+  try {
+    const newBlog = {
+      name,
+      user_id: id,
+      description,
+      content,
+      title,
+      imagePres: image,
+      CreatedAt: Date.now(),
+    };
+    await Blog.collection.insertOne(newBlog);
+    res
+      .status(201)
+      .json({ success: true, message: "Blog created successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: "Something went wrong" });
+  }
+};
 
 const UpdatePost = async (req, res) => {
-  const {title, description, name, content, id} = req.body;
-  const blogId = req.params.id;      
-  const imagePres = 'https://theblogc.onrender.com/Image/' + req.file.filename;
-  console.log(imagePres)                                              
+  const { title, image, description, name, content, id } = req.body;
+  const blogId = req.params.id;
   try {
     await Blog.findByIdAndUpdate(
       { _id: blogId }, // Le critère de recherche, vous pouvez utiliser un autre champ comme "name", "user_id", etc., selon vos besoins
@@ -29,31 +35,33 @@ const UpdatePost = async (req, res) => {
           description,
           content,
           title,
-          imagePres,
-          CreatedAt: Date.now()
-        }
+          imagePres: image,
+          CreatedAt: Date.now(),
+        },
       }
     );
-    res.status(201).json({ success: true, message: 'Blog updated successfully' });
+    res
+      .status(201)
+      .json({ success: true, message: "Blog updated successfully" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, error: 'Something went wrong' })
+    res.status(500).json({ success: false, error: "Something went wrong" });
   }
-}
+};
 
 const DeletePost = async (req, res) => {
   try {
     const blogId = req.params.id;
     const deletedBlog = await Blog.findByIdAndDelete(blogId);
     if (!deletedBlog) {
-      return res.status(404).json({ success: false, error: 'Blog not found' });
+      return res.status(404).json({ success: false, error: "Blog not found" });
     }
     res.json({ success: true, deletedBlog });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, error: 'Something went wrong' });
+    res.status(500).json({ success: false, error: "Something went wrong" });
   }
-}
+};
 
 const GetBlogs = async (req, res) => {
   try {
@@ -62,12 +70,12 @@ const GetBlogs = async (req, res) => {
     res.json(blogs);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, error: 'Something went wrong' })
+    res.status(500).json({ success: false, error: "Something went wrong" });
   }
-}
+};
 module.exports = {
-    CreatePost,
-    DeletePost,
-    GetBlogs,
-    UpdatePost,
-}
+  CreatePost,
+  DeletePost,
+  GetBlogs,
+  UpdatePost,
+};
