@@ -1,5 +1,5 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default axios.create({
-    baseURL: 'https://theblogc.onrender.com',
-})
+  baseURL: "http://localhost:3000",
+});

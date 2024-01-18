@@ -7,6 +7,8 @@ import './styles/login.css'
 import './styles/blog-page.css'
 import moment from 'moment';
 import SubmitForm from '../components/HandleSubmit/HandleSubmit'
+import { storage } from '../Firebase';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 
 const CreateBlog = () => {
 
@@ -21,15 +23,14 @@ const CreateBlog = () => {
 
     const handleImageUpload = async (file) => {
       try {
-        const formData = new FormData();
-        formData.append('image', file);
-        const response = await Axios.post('/upload', formData);
-        const imagePath = response.data.imagePath;
-
+        const randomNumber = Math.floor(Math.random() * Date.now());
+        const imageRef = ref(storage, `Images/${randomNumber}`);
+        await uploadBytes(imageRef, file)
+        const downloadURL = await getDownloadURL(imageRef);
       if (quillRef.current) {
         const quill = quillRef.current.getEditor();
         const range = quill.getSelection(true);
-        quill.insertEmbed(range.index, 'image', imagePath, 'user');
+        quill.insertEmbed(range.index, 'image', downloadURL, 'user');
       }
       } catch (error) {
         console.error('Error uploading image:', error);
