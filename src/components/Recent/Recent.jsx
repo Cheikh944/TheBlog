@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "./recent.css";
 import Axios from "../../Api/Axios";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import './recent.css'
 
 const Recent = () => {
   const [blogs, setBlogs] = useState([]);
@@ -23,68 +23,59 @@ const Recent = () => {
 
   return (
     <div className="recent">
-      <h2 className="categorie">Recent blogs posts</h2>
+      <h2 className="subTitle">Latest Posts</h2>
       <div className="blog-row">
-        <Link to={`/blog/${blogs[0]._id}`} className="recent-card-left">
-          <div
-            className="recent-left-img"
-            style={{
-              backgroundImage: `url(${blogs[0].imagePres})`,
-            }}
-          />
-          <div className="card-text">
-            <h2 className="date">
-              {moment(blogs[0].CreatedAt).format("dddd, D MMM YYYY")}
-            </h2>
-            <h2>{blogs[0].title}</h2>
-            <p>{blogs[0].description}</p>
-          </div>
-        </Link>
-        <Link to={`/blog/${blogs[1]._id}`} className="recent-card recent-1">
-          <div
-            className="recent-card-img"
-            style={{ backgroundImage: `url(${blogs[1].imagePres})` }}
-          />
-          <div className="card-text">
-            <h2 className="date">
-              {moment(blogs[1].CreatedAt).format("dddd, D MMM YYYY")}
-            </h2>
-            <h2>{blogs[1].title}</h2>
-            <p>{blogs[1].description}</p>
-          </div>
-        </Link>
-        {blogs[2] && (
-          <Link to={`/blog/${blogs[2]._id}`} className="recent-card recent-2">
+        <Link to={`/blog/${blogs[0]._id}`} key={blogs[0]._id}>
+          <div className="blog-card">
             <div
-              className="recent-card-img"
-              style={{ backgroundImage: `url(${blogs[2].imagePres})` }}
-            />
-            <div className="card-text">
-              <h2 className="date">
-                {moment(blogs[2].CreatedAt).format("dddd, D MMM YYYY")}
-              </h2>
-              <h2>{blogs[2].title}</h2>
-              <p>{blogs[2].description}</p>
-            </div>
-          </Link>
-        )}
-        {blogs[3] && (
-          <Link to={`/blog/${blogs[3]._id}`} className="recent-card-bottom">
-            <div
-              className="recent-card-bottom-img"
+              className="header-img"
               style={{
-                backgroundImage: `url(${blogs[3].imagePres})`,
+                backgroundImage: `url(${blogs[0].imagePres})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
               }}
             />
             <div className="card-text">
-              <h2 className="date">
-                {moment(blogs[3].CreatedAt).format("dddd, D MMM YYYY")}
-              </h2>
-              <h2>{blogs[3].title}</h2>
-              <p>{blogs[3].description}</p>
+              <h3 className="date">{moment(blogs[0].CreatedAt).format("dddd, D MMM YYYY")}</h3>
+              <h2>{blogs[0].title}</h2>
+              <p>{blogs[0].description}</p>
             </div>
-          </Link>
-        )}
+          </div>
+        </Link>
+        <Link to={`/blog/${blogs[1]._id}`} key={blogs[1]._id}>
+          <div className="blog-card">
+            <div
+              className="header-img"
+              style={{
+                backgroundImage: `url(${blogs[1].imagePres})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+              }}
+            />
+            <div className="card-text">
+              <h3 className="date">{moment(blogs[1].CreatedAt).format("dddd, D MMM YYYY")}</h3>
+              <h2>{blogs[1].title}</h2>
+              <p>{blogs[1].description}</p>
+            </div>
+          </div>
+        </Link>
+        <Link to={`/blog/${blogs[2]._id}`} key={blogs[2]._id}>
+          <div className="blog-card">
+            <div
+              className="header-img"
+              style={{
+                backgroundImage: `url(${blogs[2].imagePres})`,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+              }}
+            />
+            <div className="card-text">
+              <h3 className="date">{moment(blogs[2].CreatedAt).format("dddd, D MMM YYYY")}</h3>
+              <h2>{blogs[2].title}</h2>
+              <p>{blogs[2].description}</p>
+            </div>
+          </div>
+        </Link>
       </div>
     </div>
   );

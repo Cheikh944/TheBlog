@@ -13,12 +13,10 @@
     gap: 15px;
     width: 80%;
 }
-.allblogs a{
-    text-decoration: none;
-}
 .allblogs .header-img{
     width: 320px;
     height: 200px;
+    border-radius: 10px;
 }
 @media (max-width: 340px) {
     .allblogs .header-img{

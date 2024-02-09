@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
 import Home from "./pages/Home.jsx";
 import Blog from "./pages/Blog.jsx";
 import Login from "./pages/Login.jsx";
@@ -12,6 +11,7 @@ import "./App.css";
 import { AuthProvider } from "./context/authContext.jsx";
 import RequireAuth from "./components/RequireAuth.jsx";
 import PersistLogin from "./components/PersistLogin.jsx";
+import AllBlogs from "./pages/AllBlogs.jsx";
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
           <Route element={<PersistLogin />}>
             <Route path="/" element={<Home />} />
             <Route path="/blog/:id" element={<Blog />} />
+            <Route path="/blogs" element={<AllBlogs />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route element={<RequireAuth />}>

@@ -12,14 +12,16 @@ nav ul{
 }
 nav a{
     text-decoration: none;
-    color:  white;
     width: 50px;
     display: flex;
     justify-content: center;
 }
-nav a:hover{
+nav h2{
+    font-family: "Work Sans", sans-serif;
     font-weight: 600;
-    border-bottom: solid 1px white;
+}
+nav a:hover{
+    border-bottom: solid 1px;
 }
 @media (max-width: 875px) {
     nav ul{

@@ -4,7 +4,7 @@ import Axios from "../../Api/Axios";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
-const AllBlogs = () => {
+const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const AllBlogs = () => {
 
   return (
     <div className="allblogs">
-      <h2 className="categorie">All blogs posts</h2>
+      <h2 className="subTitle">All Blogs</h2>
       <div className="blog-row">
         {blogs.map((blog) => {
           const formattedDate = moment(blog.CreatedAt).format(
@@ -37,7 +37,7 @@ const AllBlogs = () => {
                   }}
                 />
                 <div className="card-text">
-                  <h2 className="date">{formattedDate}</h2>
+                  <h3 className="date">{formattedDate}</h3>
                   <h2>{blog.title}</h2>
                   <p>{blog.description}</p>
                 </div>
@@ -50,4 +50,4 @@ const AllBlogs = () => {
   );
 };
 
-export default AllBlogs;
+export default Blogs;

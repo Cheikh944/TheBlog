@@ -82,11 +82,11 @@ const CreateBlog = () => {
   return (
     <div className='blog-creation'>
       <div className="blog-base">
-        <label htmlFor="titre">Titre : </label>
+        <h2 htmlFor="titre">Titre : </h2>
         <input maxLength="50" type="text" id='titre' value={title} onChange={(e)=> setTitle(e.target.value)}/>
-        <label htmlFor="description">Description : </label>
+        <h2 htmlFor="description">Description : </h2>
         <textarea maxLength="200" name="description" id="description" cols="20" rows="10"value={description} onChange={(e)=> setDescription(e.target.value)}></textarea>
-        <label htmlFor="image-blog">Image de présentation : </label>
+        <h2 htmlFor="image-blog">Image de présentation : </h2>
         <input type="file" id="image-blog" onChange={(e)=> setImage(e.target.files[0])}/>
         <ReactQuill
         ref={quillRef}
@@ -98,7 +98,7 @@ const CreateBlog = () => {
       <div className='blog-design'>
         <div className="header-blog">
           <div className='header-img'/>
-          <li className='date'>{moment(Date.now()).format('dddd, D MMM YYYY')}</li>
+          <h2 className='date'>{moment(Date.now()).format('dddd, D MMM YYYY')}</h2>
           <h1>{title}</h1>
         </div>
         <div className='blog-content' dangerouslySetInnerHTML={{__html: content}}/>

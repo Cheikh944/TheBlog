@@ -21,6 +21,7 @@ const Navbar = () => {
       <h2>Hello {auth.name}</h2>
       <ul>
         <Link to="/">Home</Link>
+        <Link to="/blogs">Blogs</Link>
         <Link to="/profil">Profil</Link>
         {auth.name ? (
           <button onClick={logout}>Logout</button>
