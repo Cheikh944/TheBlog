@@ -11,6 +11,7 @@ var app = express();
 
 const allowedOrigins = [
   "http://127.0.0.1:5500",
+  "https://cheikh-portfolio94.netlify.app",
   "https://theblogc.netlify.app",
 ];
 
